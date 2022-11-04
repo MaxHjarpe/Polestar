@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Laddstationer>
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+    
+
+
+@{
+    Layout = "master.cshtml";
+    var model = Ummmmbraco.DataManager.GetStationsAsync();
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<article>
+@await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())
+
+    @Html.GetGridHtml(Model, "mainContent", "Clean")
+    <div style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; width: 100%; height: 100%;">
+
+        @foreach (var station in model.Result.Stations)
+        {
+            <div style="background-color: whitesmoke; padding: 50px; margin: 10px; border-radius: 5px; box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.50);">
+                <p>@station.title</p>
+                <p>@station.description</p>
+                <img style="max-width: 400px; max-height: auto;" src="@station.image" />
+                <br />
+            </div>
+
+        }
+    </div>
+</article>

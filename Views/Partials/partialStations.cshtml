@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var model = Ummmmbraco.DataManager.GetStationsAsync();
+}
+
+<div>
+    @foreach (var station in Model.Result.stations)
+    {
+        <p>@station.title</p>
+    }
+</div>

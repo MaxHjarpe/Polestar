@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Search>
+
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@inject Umbraco.Cms.Core.IPublishedContentQuery publishedContentQuery
+
+@{ 
+    Layout = "master.cshtml";
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<div>
+    <h1>TESTA</h1>
+</div>
