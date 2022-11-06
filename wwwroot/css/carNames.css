@@ -1,0 +1,28 @@
+﻿@font-face {
+    font-family: "Reg";
+    src: url("../Font/reg.ttf");
+
+}
+.reg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+.reg-image {
+}
+.car-name {
+    position: absolute;
+    color: black;
+    font-size: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Reg;
+    letter-spacing: 0.1em;
+    margin-left: 40px;
+}
+.car-name-button {
+
+}

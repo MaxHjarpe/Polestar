@@ -1,0 +1,23 @@
+﻿.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home-image {
+    /*aspect-ratio: initial;*/
+}
+
+.polaroid {
+    width: 40%;
+    min-width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    margin: 2rem;
+}
+
+.polaroid-container {
+    text-align: center;
+    padding: 10px 20px;
+}

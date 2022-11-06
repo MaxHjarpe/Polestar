@@ -49,5 +49,9 @@ namespace Ummmmbraco
             }
                 return RedirectToCurrentUmbracoPage();
         }
+        //public IActionResult UpdateName()
+        //{
+
+        //}
     }
 }

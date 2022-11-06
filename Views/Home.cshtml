@@ -11,9 +11,23 @@
 
 @if (Model.MainContent != null)
 {
-<article>
-    @Html.GetGridHtml(Model, "mainContent", "Clean")
-</article>
+    <article class="home-container">
+        @Html.GetGridHtml(Model, "mainContent", "Clean")
+
+        <div class="polaroid">
+            <img class="home-image" src="@Model.Value("imageCropper")" alt="Polestar 3 on the road" style="width: 100%" />
+            <div class="polaroid-container">
+                <p>Polestar 3</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <img class="home-image" src="@Model.Value("imageCropperTwo")" alt="Polestar 6 on display" style="width: 100%" />
+            <div class="polaroid-container">
+                <p>Polestar 6</p>
+            </div>
+        </div>
+    </article>
 }
 
 @await Html.PartialAsync("~/Views/Partials/latestArticles.cshtml")

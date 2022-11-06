@@ -1,6 +1,5 @@
 ﻿namespace Ummmmbraco
 {
-    //http://gaddr.co/ios/stations
     public class Root
     {
         public List<Station> Stations { get; set; } 

@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.CarNames>
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using System.Threading.Tasks
+
+
+@{
+    Layout = "master.cshtml";
+    Names model = await Ummmmbraco.NameGenerator.GetNamesAsync();
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<article class="reg-container">
+    <div>
+        @Html.GetGridHtml(Model, "mainContent", "Clean")
+        @foreach (var name in model.contents.names)
+        {
+            <div>
+                <img class="reg-image" src="@Model.Value("imageCropper")" />
+                <span class="car-name">@name.ToUpper()</span>
+            </div>
+        }
+    </div>
+</article>
+<div class="reg-container">
+    @using (Html.BeginForm("GetNamesAsync", "NameGenerator"))
+    {  
+        <button type="submit" class="car-name-button">New Suggestion</button>
+    }
+</div>
+
+

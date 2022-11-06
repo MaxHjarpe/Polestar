@@ -1,31 +1,53 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Laddstationer>
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
-    
+
 
 
 @{
     Layout = "master.cshtml";
     var model = Ummmmbraco.DataManager.GetStationsAsync();
 }
+@functions {
+    IHtmlContent RenderStars()
+    {
+        return Html.Raw(@$"<i style='color: #FFDE2E' class='fas fa-star'></i>");
+    }
+    IHtmlContent RenderHalfStar()
+    {
+        return Html.Raw(@$"<i style='color: #FFDE2E' class='fas fa-star-half'></i>");
+    }
+}
 
 @await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
 <article>
-@await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())
+    @*@await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())*@
 
     @Html.GetGridHtml(Model, "mainContent", "Clean")
-    <div style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; width: 100%; height: 100%;">
+    <div class="card-container">
 
         @foreach (var station in model.Result.Stations)
         {
-            <div style="background-color: whitesmoke; padding: 50px; margin: 10px; border-radius: 5px; box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.50);">
-                <p>@station.title</p>
-                <p>@station.description</p>
-                <img style="max-width: 400px; max-height: auto;" src="@station.image" />
-                <br />
-            </div>
+            <div class="polaroid">
+                <img class="home-image" src="@station.image" style="width: 100%" alt="charging station" />
+                <div class="polaroid-container">
+                    <p><b>@station.title</b></p>
+                    <p>@station.description</p>
+                    @{
+                        double rounded = Math.Round(station.rating);
+                        for (int i = 0; i < rounded; i++)
+                        {
+                            @RenderStars()
+                        }
+                        if (station.rating - rounded >= 0.5)
+                        {
+                            @RenderHalfStar()
+                        }
+                    }
 
+                </div>
+            </div>
         }
     </div>
 </article>
