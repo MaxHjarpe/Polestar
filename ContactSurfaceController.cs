@@ -16,42 +16,52 @@ namespace Ummmmbraco
         public string Email { get; set; }
         public string Message { get; set; }
     }
+
+
     public class ContactSurfaceController : SurfaceController
     {
-        private IScopeProvider _scopeProvider; 
+
+        private Umbraco.Cms.Infrastructure.Scoping.IScopeProvider _scopeProvider;
+
         public ContactSurfaceController(
-            IScopeProvider scopeProvider,
             IUmbracoContextAccessor umbracoContextAccessor,
             IUmbracoDatabaseFactory databaseFactory,
             ServiceContext services,
             AppCaches appCaches,
             IProfilingLogger profilingLogger,
-            IPublishedUrlProvider publishedUrlProvider)
+            IPublishedUrlProvider publishedUrlProvider,
+            IScopeProvider scopeProvider)
             : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
         {
-            _scopeProvider = scopeProvider;
+            this._scopeProvider = scopeProvider;
         }
 
-        public IActionResult ContactSubmit(ContactFormDto form)
+
+        public IActionResult ContactSubmit(ContactFormDto contactForm)
         {
-            if (form.Name == null || form.Email == null || form.Message == null)
-                return BadRequest();
+
+            if (contactForm.Name == null || contactForm.Email == null || contactForm.Message == null)
+            {
+                return CurrentUmbracoPage();
+            }
+
 
             using (var scope = _scopeProvider.CreateScope())
             {
-                var data = new AddCommentsTable.Contactschema();
-                data.Name = form.Name;
-                data.Email = form.Email;
-                data.Message = form.Message;
+                var data = new Ummmmbraco.AddCommentsTable.Contactschema();
+
+                data.Name = contactForm.Name;
+                data.Email = contactForm.Email;
+                data.Message = contactForm.Message;
 
                 scope.Database.Insert(data);
                 scope.Complete();
             }
-                return RedirectToCurrentUmbracoPage();
-        }
-        //public IActionResult UpdateName()
-        //{
 
-        //}
+
+            return RedirectToCurrentUmbracoPage();
+        }
+
+
     }
 }

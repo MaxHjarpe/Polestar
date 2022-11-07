@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Laddstationer>
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
 
 
 
@@ -22,7 +24,7 @@
 @await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
 <article>
-    @*@await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())*@
+    @await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())
 
     @Html.GetGridHtml(Model, "mainContent", "Clean")
     <div class="card-container">

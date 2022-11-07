@@ -1,16 +1,15 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Ummmmbraco.ContactFormDto>
 
-@using (Html.BeginUmbracoForm("ContactSubmit", "ContactSurface")) {
-    <form>
-        <label for="Name">Namn</label>
-        <input type="text" asp-for="Name"/>
-        <br/>
-        <label for="Email">Email</label>
-        <input type="email" asp-for="Email" />
-        <br/>
-        <label for="Message">Meddelande</label>
-        <input type="text" asp-for="Message"/>
-        <br/>
-        <input type="submit" value="Skicka">
-    </form>
+@using (Html.BeginUmbracoForm("ContactSubmit", "ContactSurface"))
+{
+    <label for="Name">Namn</label>
+    <input type="text" asp-for="Name" />
+    <br />
+    <label for="Email">Email</label>
+    <input type="email" asp-for="Email" />
+    <br />
+    <label for="Message">Meddelande</label>
+    <input type="text" asp-for="Message" />
+    <br />
+    <input type="submit" value="Skicka">
 }
