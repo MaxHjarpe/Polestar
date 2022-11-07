@@ -17,8 +17,8 @@
         @foreach (var name in model.contents.names)
         {
             <div>
-                <img class="reg-image" src="@Model.Value("imageCropper")" />
-                <span class="car-name">@name.ToUpper()</span>
+                <img class="reg-image" src="@Model.Value("imageCropper")" style="width: 100%" />
+                <span class="car-name"><p class="car-name-text">@name.ToUpper()</p></span>
             </div>
         }
     </div>

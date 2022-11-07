@@ -6,8 +6,12 @@
 }
 
 .home-image {
-    /*aspect-ratio: initial;*/
+    transition: transform 0.25s;
 }
+.home-image:hover {
+    
+}
+
 
 .polaroid {
     width: 40%;
@@ -15,7 +19,11 @@
     background-color: white;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     margin: 2rem;
+    overflow: hidden;
 }
+    .polaroid:hover img {
+        transform: scale(1.1);
+    }
 
 .polaroid-container {
     text-align: center;

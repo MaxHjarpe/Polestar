@@ -1,0 +1,39 @@
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.input-fields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.contact-input {
+    border: none;
+    border-bottom: solid 1px black;
+}
+
+    .contact-input:focus {
+        outline: none;
+    }
+
+.contact-image img {
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 530px) {
+    .contact-image {
+        visibility: hidden;
+    }
+}

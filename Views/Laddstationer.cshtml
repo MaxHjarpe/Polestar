@@ -24,7 +24,6 @@
 @await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
 <article>
-    @await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())
 
     @Html.GetGridHtml(Model, "mainContent", "Clean")
     <div class="card-container">

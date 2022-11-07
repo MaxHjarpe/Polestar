@@ -2,14 +2,16 @@
 
 @using (Html.BeginUmbracoForm("ContactSubmit", "ContactSurface"))
 {
-    <label for="Name">Namn</label>
-    <input type="text" asp-for="Name" />
-    <br />
-    <label for="Email">Email</label>
-    <input type="email" asp-for="Email" />
-    <br />
-    <label for="Message">Meddelande</label>
-    <input type="text" asp-for="Message" />
-    <br />
-    <input type="submit" value="Skicka">
+    <div class="input-fields">
+        <label class="contact-label" for="Name">Name</label>
+        <input class="contact-input" type="text" asp-for="Name" placeholder="Jonas Gardell" />
+        <br />
+        <label class="contact-label" for="Email">Email</label>
+        <input class="contact-input" type="email" asp-for="Email" placeholder="jonas@gardell.com" />
+        <br />
+        <label class="contact-label" for="Message">Message</label>
+        <input class="contact-input" type="text" asp-for="Message" placeholder="Jonas Gardell bjuder"/>
+        <br />
+        <input type="submit" value="Skicka">
+    </div>
 }

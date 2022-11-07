@@ -18,26 +18,37 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                @if(submitted)
-                {
+                <div class="form-container">
+                    
+                    @await Html.PartialAsync("~/Views/Partials/partialForm.cshtml", new Ummmmbraco.ContactFormDto())
+
+                    <div class="contact-image">
+                        <img src="@Model.Value("imageCropperContact")" alt="Road" style="width: 100%" />
+                    </div>
+
+
+
+                    @* @if(submitted)
+                    {
 
                     @if (success)
                     {
-                        @Model.SuccessMessage
+                    @Model.SuccessMessage
                     }
                     else
                     {
-                        @Model.ErrorMessage
+                    @Model.ErrorMessage
                     }
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     @Model.InstructionMessage
                     <div class="my-5">
-                        @await Component.InvokeAsync("Contact")
+                    @await Component.InvokeAsync("Contact")
                     </div>
 
-                }
+                    }*@
+                </div>
             </div>
         </div>
     </div>
